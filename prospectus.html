@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prospectus 2026-27 — GIGL International School, Darbhanga</title>
+<meta name="description" content="The official 16-page prospectus of GIGL International School, Darbhanga — philosophy, leadership, academics, STREAM, clubs, facilities and admission guidelines.">
+<meta name="theme-color" content="#0a192f">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* ---- prospectus reader ---- */
+  .pr-bar{
+    position:sticky;top:0;z-index:40;background:rgba(5,13,26,.95);
+    border-bottom:1px solid var(--line-soft);backdrop-filter:blur(14px);
+  }
+  .pr-bar .wrap{display:flex;align-items:center;gap:14px;min-height:62px}
+  .pr-bar .brand img{width:40px;height:40px}
+  .pr-bar .brand__name{font-size:14px}
+  .pr-nav{margin-left:auto;display:flex;align-items:center;gap:8px}
+  .pr-count{font-size:12.5px;color:var(--muted);min-width:86px;text-align:center;font-weight:600}
+  .pr-btn{
+    width:38px;height:38px;border-radius:10px;border:1px solid var(--line-soft);
+    background:transparent;color:#fff;cursor:pointer;font-size:13px;
+  }
+  .pr-btn:hover{border-color:var(--gold);color:var(--gold)}
+  .pr-btn:disabled{opacity:.35;cursor:not-allowed}
+
+  .pr-stage{background:linear-gradient(180deg,#050d1a,#081428);padding:28px 0 70px}
+  .pr-page{
+    width:min(880px,94vw);margin:0 auto;background:#fff;color:#1c2430;
+    border-radius:14px;overflow:hidden;position:relative;
+    box-shadow:0 30px 70px rgba(0,0,0,.55);
+    padding:clamp(28px,5vw,58px) clamp(22px,5vw,62px) 64px;
+    min-height:0;scroll-margin-top:80px;
+  }
+  .pr-page + .pr-page{margin-top:26px}
+  .pr-page::before{
+    content:"";position:absolute;left:0;top:0;right:0;height:6px;
+    background:linear-gradient(90deg,#0a192f,#123f86 55%,#f5b301);
+  }
+  .pr-page::after{
+    content:"";position:absolute;left:0;right:0;bottom:0;height:4px;
+    background:linear-gradient(90deg,transparent,#f5b301,transparent);
+  }
+  .pg-num{
+    position:absolute;bottom:22px;left:0;right:0;text-align:center;
+    font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a97a8;
+  }
+  .pg-crest{position:absolute;right:22px;top:18px;width:52px;height:52px;object-fit:contain;opacity:.9}
+  .pg-kicker{font-size:10.5px;font-weight:800;letter-spacing:.3em;text-transform:uppercase;color:#b17b16;margin-bottom:10px}
+  .pg-h{font-family:var(--font-display);font-size:clamp(22px,3.4vw,34px);color:#0a192f;line-height:1.12;margin:0 0 14px;letter-spacing:-.01em}
+  .pg-h em{font-style:normal;color:#c98f12}
+  .pg-p{font-size:14.5px;line-height:1.75;color:#445062;margin:0 0 12px}
+  .pg-p b{color:#0a192f}
+  .pg-list{margin:10px 0 0;padding:0;list-style:none}
+  .pg-list li{display:flex;gap:10px;padding:7px 0;font-size:14px;color:#445062;border-bottom:1px dashed #e4e9f0}
+  .pg-list li:last-child{border-bottom:0}
+  .pg-list li i{color:#c98f12;font-size:10px;margin-top:7px}
+  .pg-grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+  .pg-card{border:1px solid #e4e9f0;border-radius:12px;padding:16px;background:#fbfcfe}
+  .pg-card h4{margin:0 0 6px;font-family:var(--font-display);font-size:15px;color:#0a192f}
+  .pg-card p{margin:0;font-size:13px;color:#5a6678;line-height:1.6}
+  .pg-photo{width:100%;border-radius:12px;object-fit:cover;margin:14px 0 6px;border:1px solid #e4e9f0}
+  .pg-quote{
+    border-left:3px solid #f5b301;padding:6px 0 6px 16px;margin:16px 0;
+    font-style:italic;color:#33405a;font-size:14.5px;line-height:1.7;
+  }
+  .pg-cover{display:flex;flex-direction:column;align-items:center;text-align:center;justify-content:center;min-height:70vh;
+    background:radial-gradient(700px 380px at 50% 12%,#eef4ff,transparent 70%),#fff}
+  .pg-cover img{width:min(300px,60vw);margin-bottom:26px}
+  .pg-cover h1{font-family:var(--font-display);font-size:clamp(30px,6vw,52px);color:#0a192f;margin:0 0 10px;letter-spacing:-.02em}
+  .pg-cover .tag{font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:#c98f12;font-weight:800}
+  .pg-cover .sess{margin-top:26px;display:inline-flex;gap:10px;align-items:center;background:#0a192f;color:#fff;
+    padding:10px 22px;border-radius:999px;font-size:13px;font-weight:700;letter-spacing:.06em}
+  .pg-cover .addr{margin-top:22px;font-size:12.5px;color:#5a6678;line-height:1.7}
+  .pg-lead{display:flex;gap:18px;align-items:flex-start;margin-top:18px}
+  .pg-lead .ini{flex:0 0 56px;height:56px;border-radius:50%;display:grid;place-items:center;color:#20180a;
+    background:linear-gradient(140deg,#fed966,#f5b301);font:700 20px var(--font-display)}
+  .pg-table{width:100%;border-collapse:collapse;margin-top:14px;font-size:13.5px}
+  .pg-table th{background:#0a192f;color:#fff;text-align:left;padding:10px 14px;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+  .pg-table td{padding:10px 14px;border-bottom:1px solid #e4e9f0;color:#445062}
+  .pg-values{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+  .pg-value{border:1px solid #e4e9f0;border-radius:10px;padding:12px;text-align:center;background:#fbfcfe;
+    font-family:var(--font-display);font-weight:600;color:#0a192f;font-size:13.5px}
+  .pg-clubs{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:14px}
+  .pg-contact{display:grid;gap:10px;margin-top:16px}
+  .pg-contact div{display:flex;gap:12px;align-items:flex-start;border-bottom:1px dashed #e4e9f0;padding:10px 0}
+  .pg-contact i{color:#c98f12;margin-top:4px}
+  .pg-contact b{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8a97a8;margin-bottom:3px}
+  .pg-contact p{margin:0;font-size:14px;color:#22303f}
+
+  @media print{
+    @page{size:A4;margin:0}
+    body{background:#fff}
+    .pr-bar,.pr-stage{background:none;padding:0}
+    .pr-page{box-shadow:none;border-radius:0;width:210mm;min-height:297mm;margin:0 auto;break-after:page;page-break-after:always}
+    .pr-page:last-child{break-after:auto;page-break-after:auto}
+    .pr-page + .pr-page{margin-top:0}
+  }
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<div class="pr-bar">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <img src="assets/images/gigl/logo.png" alt="GIGL crest" width="40" height="40">
+      <span class="brand__text"><span class="brand__name">Prospectus 2026-27</span>
+      <span class="brand__sub">GIGL International School</span></span>
+    </a>
+    <div class="pr-nav">
+      <span class="pr-count" id="prCount">Page 1 / 16</span>
+      <button class="pr-btn" id="prPrev" aria-label="Previous page"><i class="fa-solid fa-chevron-up"></i></button>
+      <button class="pr-btn" id="prNext" aria-label="Next page"><i class="fa-solid fa-chevron-down"></i></button>
+      <button class="btn btn-gold btn-sm" onclick="window.print()"><i class="fa-solid fa-print"></i> Save as PDF</button>
+      <a class="btn btn-ghost btn-sm" href="index.html"><i class="fa-solid fa-house"></i></a>
+    </div>
+  </div>
+</div>
+
+<div class="pr-stage" id="prStage">
+
+  <!-- 1. COVER -->
+  <section class="pr-page pg-cover" id="pg1">
+    <img src="assets/images/gigl/logo.png" alt="GIGL International School crest">
+    <p class="tag">Prospectus · Session 2026-27</p>
+    <h1>GIGL International School</h1>
+    <p class="tag" style="letter-spacing:.2em">Shaping Minds, Building Futures</p>
+    <span class="sess"><i class="fa-solid fa-graduation-cap"></i> Nursery to Class 6th · CBSE Curriculum · Digital Classrooms</span>
+    <p class="addr">Maharajganj Pokhar, Imambari, Laheriasarai, Darbhanga – 846001, Bihar<br>
+      giglschool2026@gmail.com · +91 8434459262 · +91 6200877717 · +91 8210124130</p>
+    <span class="pg-num">Page 1 · Cover</span>
+  </section>
+
+  <!-- 2. PRINCIPAL'S MESSAGE -->
+  <section class="pr-page" id="pg2">
+    <img class="pg-crest" src="assets/images/gigl/logo.png" alt="">
+    <p class="pg-kicker">From the Principal's Desk</p>
+    <h2 class="pg-h">Welcome to <em>GIGL International School</em></h2>
+    <p class="pg-p">Dear Parents,</p>
+    <p class="pg-p">Thank you for considering GIGL International School for your child. Choosing a school is
+      one of the most important decisions a family makes, and we do not take that trust lightly.</p>
+    <div class="pg-lead">
+      <span class="ini">MA</span>
+      <div>
+        <p class="pg-p" style="margin:0"><b>Mohammad Afzal Sir (B.Ed)</b><br>Principal &amp; Director · Academic Vision &amp; Pedagogy</p>
+      </div>
+    </div>
+    <p class="pg-quote">“Every child who walks through our gate deserves a teacher who believes in them
+      before the world does. That is the standard we hold ourselves to, every single day.”</p>
+    <p class="pg-p">At GIGL, your child will be taught with digital smart classrooms, activity based lessons
+      and patient, experienced teachers — in small classes where no child is a face in the crowd. We look
+      forward to welcoming your family to our campus.</p>
+    <span class="pg-num">Page 2 · Principal's Message</span>
+  </section>
+
+  <!-- 3. ABOUT / PHILOSOPHY -->
+  <section class="pr-page" id="pg3">
+    <p class="pg-kicker">About the School</p>
+    <h2 class="pg-h">A small school with <em>large intentions</em></h2>
+    <p class="pg-p">GIGL International School was started with one belief — that a child in Darbhanga deserves
+      the same quality of teaching, technology and care as a child in any metro city.</p>
+    <p class="pg-p">We keep our classes small, our classrooms digital, and our doors open. Parents are
+      partners, not visitors. Every teacher here knows every child by name — their strengths, their
+      worries, and the joke that makes them laugh.</p>
+    <img class="pg-photo" src="assets/images/gigl/gallery/photo-01.jpeg" alt="Classroom at GIGL International School" loading="lazy">
+    <div class="pg-grid2">
+      <div class="pg-card"><h4>Experienced Faculty</h4><p>Qualified, trained teachers who enjoy teaching young children.</p></div>
+      <div class="pg-card"><h4>Activity Based Learning</h4><p>Concepts are seen, touched and built — not memorised.</p></div>
+      <div class="pg-card"><h4>Digital Classrooms</h4><p>Projector and audio in every room, used with purpose.</p></div>
+      <div class="pg-card"><h4>Safe &amp; Nurturing Environment</h4><p>A campus designed at a child's height.</p></div>
+    </div>
+    <span class="pg-num">Page 3 · About</span>
+  </section>
+
+  <!-- 4. VISION & MISSION -->
+  <section class="pr-page" id="pg4">
+    <p class="pg-kicker">Vision &amp; Mission</p>
+    <h2 class="pg-h">What we are <em>working towards</em></h2>
+    <div class="pg-grid2">
+      <div class="pg-card">
+        <h4><i class="fa-solid fa-eye" style="color:#c98f12"></i> Our Vision</h4>
+        <p>To be Darbhanga's most trusted school for early and primary education — the school parents
+          recommend to other parents without being asked.</p>
+      </div>
+      <div class="pg-card">
+        <h4><i class="fa-solid fa-bullseye" style="color:#c98f12"></i> Our Mission</h4>
+        <p>To teach with clarity, warmth and honesty; to keep learning joyful every day; and to send every
+          child home a little more confident than they arrived.</p>
+      </div>
+    </div>
+    <p class="pg-p" style="margin-top:18px"><b>How we measure ourselves.</b> Not by toppers alone. We watch four things
+      every term: attendance, reading levels, how confidently a child speaks up in class, and how they
+      treat each other on the playground.</p>
+    <p class="pg-quote">Holistic development is not a poster on our wall. It is a timetable decision —
+      academics, arts, sport and values are all given real hours.</p>
+    <span class="pg-num">Page 4 · Vision &amp; Mission</span>
+  </section>
+
+  <!-- 5. CORE VALUES -->
+  <section class="pr-page" id="pg5">
+    <p class="pg-kicker">Character</p>
+    <h2 class="pg-h">Twelve values we <em>teach on purpose</em></h2>
+    <p class="pg-p">Values are not left to chance at GIGL. Each month the whole school focuses on one value —
+      in assembly, in class stories, and in the way teachers speak.</p>
+    <div class="pg-values">
+      <div class="pg-value">Compassion</div><div class="pg-value">Determination</div><div class="pg-value">Integrity</div>
+      <div class="pg-value">Cleanliness</div><div class="pg-value">Honesty</div><div class="pg-value">Respect</div>
+      <div class="pg-value">Responsibility</div><div class="pg-value">Curiosity</div><div class="pg-value">Discipline</div>
+      <div class="pg-value">Teamwork</div><div class="pg-value">Empathy</div><div class="pg-value">Excellence</div>
+    </div>
+    <p class="pg-p" style="margin-top:18px">Parents receive a short note each month explaining the value of the
+      month and one simple way to reinforce it at home — the same words, in both places, make it stick.</p>
+    <span class="pg-num">Page 5 · Core Values</span>
+  </section>
+
+  <!-- 6. LEADERSHIP -->
+  <section class="pr-page" id="pg6">
+    <p class="pg-kicker">Leadership</p>
+    <h2 class="pg-h">The people <em>behind the school</em></h2>
+    <div class="pg-grid2" style="grid-template-columns:1fr">
+      <div class="pg-card">
+        <h4>Mohammad Afzal Sir (B.Ed) — Principal &amp; Director</h4>
+        <p>Leads academic vision and pedagogy. The person to speak to about teaching, classes and your
+          child's progress. <b>+91 8434459262</b></p>
+      </div>
+      <div class="pg-card">
+        <h4>Er. Hasan Sir — Director</h4>
+        <p>Leads STEM innovation, digital infrastructure and coding — the reason every GIGL classroom has
+          a working projector and every lab has a plan. <b>+91 6200877717</b></p>
+      </div>
+      <div class="pg-card">
+        <h4>Er. Iftekhar Sir — Director</h4>
+        <p>Leads student welfare, sports, safety and operations — transport routes, campus safety, and the
+          systems parents rarely see but always feel. <b>+91 8210124130</b></p>
+      </div>
+    </div>
+    <p class="pg-p" style="margin-top:16px">An academician and two engineers — three different strengths,
+      one shared standard: nothing is too small to get right for a child.</p>
+    <span class="pg-num">Page 6 · Leadership</span>
+  </section>
+
+  <!-- 7. ACADEMICS OVERVIEW -->
+  <section class="pr-page" id="pg7">
+    <img class="pg-crest" src="assets/images/gigl/logo.png" alt="">
+    <p class="pg-kicker">Academics</p>
+    <h2 class="pg-h">CBSE pattern, <em>child-paced</em></h2>
+    <p class="pg-p">The syllabus follows the CBSE pattern from Nursery to Class 6th, but the pace is set by
+      the child — not the calendar. Teachers keep a simple record of where each child is, and stretch or
+      support accordingly.</p>
+    <ul class="pg-list">
+      <li><i class="fa-solid fa-circle"></i> English as the medium of instruction, with strong Hindi support.</li>
+      <li><i class="fa-solid fa-circle"></i> Continuous, descriptive assessment — no public ranking of small children.</li>
+      <li><i class="fa-solid fa-circle"></i> Regular parent-teacher meetings with written feedback.</li>
+      <li><i class="fa-solid fa-circle"></i> Homework that a child can do without a parent's degree.</li>
+    </ul>
+    <img class="pg-photo" src="assets/images/gigl/gallery/photo-24.jpeg" alt="Digital classroom at GIGL" loading="lazy">
+    <span class="pg-num">Page 7 · Academics</span>
+  </section>
+
+  <!-- 8. EARLY YEARS -->
+  <section class="pr-page" id="pg8">
+    <p class="pg-kicker">Scholastic Plan · Stage 1</p>
+    <h2 class="pg-h">Early Years — <em>Nursery, LKG, UKG</em></h2>
+    <p class="pg-p">The first job of school is to make a child love coming to it. Our Early Years programme
+      is play-led, song-filled and gentle — with real pre-literacy and numeracy underneath the fun.</p>
+    <ul class="pg-list">
+      <li><i class="fa-solid fa-circle"></i> Phonics, pre-writing patterns and number sense</li>
+      <li><i class="fa-solid fa-circle"></i> Story, rhyme, art, clay and free play</li>
+      <li><i class="fa-solid fa-circle"></i> Colour days, festivals and rhymes on stage</li>
+      <li><i class="fa-solid fa-circle"></i> No formal exams — observation and progress notes only</li>
+    </ul>
+    <p class="pg-p" style="margin-top:14px"><b>Class size:</b> deliberately small, with a helper-supported
+      model so that tie-laces, tears and toilet runs all get handled calmly.</p>
+    <span class="pg-num">Page 8 · Early Years</span>
+  </section>
+
+  <!-- 9. FOUNDATION YEARS -->
+  <section class="pr-page" id="pg9">
+    <p class="pg-kicker">Scholastic Plan · Stage 2</p>
+    <h2 class="pg-h">Foundation Years — <em>Class 1 to 4</em></h2>
+    <p class="pg-p">Reading fluency, number confidence and neat handwriting are the three mountains of these
+      years. We climb them with the child, not in front of them.</p>
+    <ul class="pg-list">
+      <li><i class="fa-solid fa-circle"></i> English, Hindi, Mathematics, EVS</li>
+      <li><i class="fa-solid fa-circle"></i> Computer and digital literacy from Class 1</li>
+      <li><i class="fa-solid fa-circle"></i> Art, music, dance and physical education every week</li>
+      <li><i class="fa-solid fa-circle"></i> Continuous assessment with term report cards</li>
+    </ul>
+    <img class="pg-photo" src="assets/images/gigl/gallery/photo-31.jpeg" alt="Activities at GIGL" loading="lazy">
+    <span class="pg-num">Page 9 · Foundation Years</span>
+  </section>
+
+  <!-- 10. GROWING YEARS -->
+  <section class="pr-page" id="pg10">
+    <p class="pg-kicker">Scholastic Plan · Stage 3</p>
+    <h2 class="pg-h">Growing Years — <em>Class 5 &amp; 6</em></h2>
+    <p class="pg-p">These are the years a child's habits set. We make the work honest, the feedback specific
+      and the expectations clear — so secondary school feels like a step, not a shock.</p>
+    <ul class="pg-list">
+      <li><i class="fa-solid fa-circle"></i> English, Hindi, Sanskrit, Mathematics</li>
+      <li><i class="fa-solid fa-circle"></i> Science, Social Science and Computer Science</li>
+      <li><i class="fa-solid fa-circle"></i> Project work, presentations and Olympiad preparation</li>
+      <li><i class="fa-solid fa-circle"></i> Term assessments with detailed subject feedback</li>
+    </ul>
+    <p class="pg-p" style="margin-top:14px"><b>Study skills:</b> planner use, note-making and revision
+      technique are taught explicitly — not assumed.</p>
+    <span class="pg-num">Page 10 · Growing Years</span>
+  </section>
+
+  <!-- 11. STREAM -->
+  <section class="pr-page" id="pg11">
+    <img class="pg-crest" src="assets/images/gigl/logo.png" alt="">
+    <p class="pg-kicker">STREAM Education</p>
+    <h2 class="pg-h">Science · Technology · Recreation · <em>Engineering · Art · Maths</em></h2>
+    <p class="pg-p">STREAM is how we turn the syllabus into something a child can hold. Every class gets lab
+      and activity time where textbook ideas become experiments, models and drawings.</p>
+    <div class="pg-grid2">
+      <div class="pg-card"><h4>Science &amp; Technology</h4><p>Simple experiments, observation journals and age-right coding in the computer lab.</p></div>
+      <div class="pg-card"><h4>Engineering</h4><p>Build-and-test challenges — paper bridges, working models, robotics kits.</p></div>
+      <div class="pg-card"><h4>Art</h4><p>Drawing, craft and design that quietly teach patience and precision.</p></div>
+      <div class="pg-card"><h4>Recreation &amp; Maths</h4><p>Games period and maths labs where thinking is the sport.</p></div>
+    </div>
+    <span class="pg-num">Page 11 · STREAM</span>
+  </section>
+
+  <!-- 12. CLUBS -->
+  <section class="pr-page" id="pg12">
+    <p class="pg-kicker">Beyond Academics</p>
+    <h2 class="pg-h">Ten clubs, <em>one afternoon a week</em></h2>
+    <p class="pg-p">Every child chooses a club each term. Clubs mix classes and ages, so a quiet Class 3
+      child can end up leading a project with Class 6 teammates.</p>
+    <div class="pg-clubs">
+      <div class="pg-card"><h4>English Literary Club</h4><p>Reading circles, spelling bees and book talks.</p></div>
+      <div class="pg-card"><h4>Hindi Sahitya Club</h4><p>Kavita, kahani and handwriting pride.</p></div>
+      <div class="pg-card"><h4>Young Scientist Club</h4><p>Weekly experiments and science fair projects.</p></div>
+      <div class="pg-card"><h4>Photography Club</h4><p>Composition, light and the school album.</p></div>
+      <div class="pg-card"><h4>Orator's Public Speaking</h4><p>Debate, elocution and assembly anchors.</p></div>
+      <div class="pg-card"><h4>Creative Expression</h4><p>Art, craft, origami and display boards.</p></div>
+      <div class="pg-card"><h4>Eco Club</h4><p>Campus greenery, waste segregation and water sense.</p></div>
+      <div class="pg-card"><h4>Music &amp; Dance</h4><p>Prayer songs, folk and stage performance.</p></div>
+      <div class="pg-card"><h4>Sports Club</h4><p>Athletics, team games and annual sports meet.</p></div>
+      <div class="pg-card"><h4>House System</h4><p>Four houses, friendly rivalry, leadership roles.</p></div>
+    </div>
+    <span class="pg-num">Page 12 · Clubs</span>
+  </section>
+
+  <!-- 13. FACILITIES -->
+  <section class="pr-page" id="pg13">
+    <p class="pg-kicker">Campus</p>
+    <h2 class="pg-h">Facilities built for <em>small children</em></h2>
+    <ul class="pg-list">
+      <li><i class="fa-solid fa-circle"></i> <b>Digital Smart Classrooms</b> — projector and audio in every room</li>
+      <li><i class="fa-solid fa-circle"></i> <b>Computer &amp; Robotics Lab</b> — coding from Class 3 onwards</li>
+      <li><i class="fa-solid fa-circle"></i> <b>English Language Lab</b> — listening, speaking, pronunciation</li>
+      <li><i class="fa-solid fa-circle"></i> <b>Library</b> — picture books to chapter books, weekly periods</li>
+      <li><i class="fa-solid fa-circle"></i> <b>Sports Arena</b> — outdoor games and morning drill</li>
+      <li><i class="fa-solid fa-circle"></i> <b>GPS Van Transport</b> — route-wise pickup and drop</li>
+      <li><i class="fa-solid fa-circle"></i> <b>Infirmary</b> — first aid and a quiet rest area</li>
+      <li><i class="fa-solid fa-circle"></i> <b>Counselling</b> — child wellbeing and parent guidance</li>
+    </ul>
+    <img class="pg-photo" src="assets/images/gigl/gallery/photo-18.jpeg" alt="Campus celebration at GIGL" loading="lazy">
+    <span class="pg-num">Page 13 · Facilities</span>
+  </section>
+
+  <!-- 14. A DAY AT GIGL -->
+  <section class="pr-page" id="pg14">
+    <p class="pg-kicker">Student Life</p>
+    <h2 class="pg-h">A day <em>at GIGL</em></h2>
+    <p class="pg-p">Assembly and a thought for the day, then focused academic periods in smart classrooms.
+      After the break: activity, lab or club time. The last period is for revision, reading or games —
+      so homework has already half-happened before the child reaches home.</p>
+    <p class="pg-p">Through the year: colour days and festivals, Independence Day and Republic Day
+      programmes, parent-teacher meetings, olympiads, excursions and the annual sports meet.</p>
+    <img class="pg-photo" src="assets/images/gigl/gallery/photo-42.jpeg" alt="Annual day performance at GIGL" loading="lazy">
+    <p class="pg-quote">“The child should not be able to decide which was the better part of the day —
+      the learning or the laughing.”</p>
+    <span class="pg-num">Page 14 · Student Life</span>
+  </section>
+
+  <!-- 15. ADMISSION -->
+  <section class="pr-page" id="pg15">
+    <img class="pg-crest" src="assets/images/gigl/logo.png" alt="">
+    <p class="pg-kicker">Admission Guidelines · 2026-27</p>
+    <h2 class="pg-h">Joining <em>GIGL</em></h2>
+    <table class="pg-table">
+      <thead><tr><th>Class</th><th>Age as on 31 March 2026</th></tr></thead>
+      <tbody>
+        <tr><td>Nursery</td><td>3 years completed</td></tr>
+        <tr><td>LKG</td><td>4 years completed</td></tr>
+        <tr><td>UKG</td><td>5 years completed</td></tr>
+        <tr><td>Class 1</td><td>5 years 6 months – 6 years</td></tr>
+        <tr><td>Class 2 – 6</td><td>Age-appropriate, subject to seat availability</td></tr>
+      </tbody>
+    </table>
+    <p class="pg-p" style="margin-top:16px"><b>The process:</b> submit the online enquiry form on our website
+      or call the helpdesk → visit the campus with your child → a short, friendly interaction → complete
+      the admission formalities.</p>
+    <p class="pg-p"><b>Documents required:</b> birth certificate (photocopy), 4 passport-size photographs,
+      Aadhaar card of child and parents, previous school report card, transfer certificate (Class 2
+      onwards), and address proof.</p>
+    <p class="pg-p"><b>Fees:</b> fee structure and transport routes are shared at the campus office — please
+      call <b>+91 8434459262</b> before visiting.</p>
+    <span class="pg-num">Page 15 · Admission</span>
+  </section>
+
+  <!-- 16. CONTACT / BACK COVER -->
+  <section class="pr-page" id="pg16">
+    <p class="pg-kicker">Get in Touch</p>
+    <h2 class="pg-h">Come and <em>see the school</em></h2>
+    <div class="pg-contact">
+      <div><i class="fa-solid fa-location-dot"></i><div><b>Address</b>
+        <p>Maharajganj Pokhar, Imambari, Laheriasarai,<br>Darbhanga – 846001, Bihar, India</p></div></div>
+      <div><i class="fa-solid fa-phone"></i><div><b>Admission Helpdesk</b>
+        <p>Mohammad Afzal Sir — +91 8434459262<br>Er. Hasan Sir — +91 6200877717<br>Er. Iftekhar Sir — +91 8210124130</p></div></div>
+      <div><i class="fa-regular fa-envelope"></i><div><b>Email</b><p>giglschool2026@gmail.com</p></div></div>
+      <div><i class="fa-brands fa-instagram"></i><div><b>Instagram</b><p>@gigl.school2026</p></div></div>
+      <div><i class="fa-brands fa-youtube"></i><div><b>YouTube</b><p>GIGL School</p></div></div>
+    </div>
+    <p class="pg-quote" style="margin-top:24px">Shaping Minds, Building Futures — we would be honoured to
+      build your child's future with you.</p>
+    <p style="text-align:center;margin-top:30px">
+      <a class="btn btn-gold" href="index.html#admission" style="color:#20180a"><i class="fa-solid fa-pen-to-square"></i> Apply Online</a>
+      <a class="btn btn-outline" href="assets/docs/GIGL_International_School_Admission_Form.pdf" download style="color:#c98f12;border-color:#c98f12"><i class="fa-solid fa-file-pdf"></i> Admission Form (PDF)</a>
+    </p>
+    <span class="pg-num">Page 16 · Back Cover</span>
+  </section>
+</div>
+
+<script>
+(function () {
+  var pages = Array.prototype.slice.call(document.querySelectorAll(".pr-page"));
+  var count = document.getElementById("prCount");
+  var prev = document.getElementById("prPrev");
+  var next = document.getElementById("prNext");
+  var idx = 0;
+
+  function current() {
+    var mid = window.scrollY + window.innerHeight / 3;
+    for (var i = pages.length - 1; i >= 0; i--) {
+      if (pages[i].offsetTop <= mid) return i;
+    }
+    return 0;
+  }
+  function update() {
+    idx = current();
+    if (count) count.textContent = "Page " + (idx + 1) + " / " + pages.length;
+    if (prev) prev.disabled = idx === 0;
+    if (next) next.disabled = idx === pages.length - 1;
+  }
+  function go(i) {
+    i = Math.max(0, Math.min(i, pages.length - 1));
+    window.scrollTo({ top: pages[i].offsetTop - 74, behavior: "smooth" });
+  }
+
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
+  if (prev) prev.addEventListener("click", function () { go(idx - 1); });
+  if (next) next.addEventListener("click", function () { go(idx + 1); });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowDown" || e.key === "PageDown") { e.preventDefault(); go(idx + 1); }
+    if (e.key === "ArrowUp" || e.key === "PageUp") { e.preventDefault(); go(idx - 1); }
+  });
+  update();
+})();
+</script>
+</body>
+</html>

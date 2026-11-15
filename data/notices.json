@@ -1,0 +1,62 @@
+[
+  {
+    "id": "N-2026-001",
+    "title": "Admissions Open for Session 2026-27 & 2027-28",
+    "body": "Limited seats available from Nursery to Class 6th. Visit the campus between 9:00 AM and 3:00 PM or call the admission helpdesk to book a guided visit.",
+    "date": "2026-11-10",
+    "category": "Admission",
+    "pinned": true,
+    "active": true,
+    "link": "#admission"
+  },
+  {
+    "id": "N-2026-002",
+    "title": "Parent-Teacher Meeting — Saturday, 22 November 2026",
+    "body": "All parents are requested to meet the class teacher between 9:00 AM and 12:30 PM. Please carry the student diary and the last assessment sheet.",
+    "date": "2026-11-08",
+    "category": "Event",
+    "pinned": false,
+    "active": true,
+    "link": ""
+  },
+  {
+    "id": "N-2026-003",
+    "title": "Winter Uniform from 1 December",
+    "body": "Students must come in the complete winter uniform from 1 December 2026. Navy blazer, school tie and grey socks are compulsory.",
+    "date": "2026-11-05",
+    "category": "General",
+    "pinned": false,
+    "active": true,
+    "link": ""
+  },
+  {
+    "id": "N-2026-004",
+    "title": "Half-Yearly Assessment Datesheet Released",
+    "body": "The assessment begins on 8 December 2026 for Classes 1 to 6. The datesheet has been shared with class teachers and is displayed on the school notice board.",
+    "date": "2026-11-02",
+    "category": "Exam",
+    "pinned": false,
+    "active": true,
+    "link": ""
+  },
+  {
+    "id": "N-2026-005",
+    "title": "Annual Sports Meet — Save the Date",
+    "body": "Our annual sports meet will be held in the third week of January 2027. House-wise practice sessions begin from 5 January during the games period.",
+    "date": "2026-10-28",
+    "category": "Event",
+    "pinned": false,
+    "active": true,
+    "link": ""
+  },
+  {
+    "id": "N-2026-006",
+    "title": "Campus Closed on 18 November",
+    "body": "The school will remain closed on 18 November 2026 on account of a local holiday. Transport service will not operate that day.",
+    "date": "2026-10-20",
+    "category": "Holiday",
+    "pinned": false,
+    "active": true,
+    "link": ""
+  }
+]

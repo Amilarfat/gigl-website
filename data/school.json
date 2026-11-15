@@ -1,0 +1,48 @@
+{
+  "name": "GIGL International School",
+  "shortName": "GIGL",
+  "tagline": "Shaping Minds, Building Futures",
+  "classes": "Nursery to Class 6th",
+  "curriculum": "CBSE Pattern",
+  "address": "Maharajganj Pokhar, Imambari, Laheriasarai, Darbhanga – 846001, Bihar, India",
+  "email": "giglschool2026@gmail.com",
+  "phones": ["+91 8434459262", "+91 6200877717", "+91 8210124130"],
+  "whatsapp": "918434459262",
+  "instagram": "https://instagram.com/gigl.school2026",
+  "instagramHandle": "@gigl.school2026",
+  "youtube": "https://www.youtube.com/@giglSchool",
+  "siteUrl": "https://USERNAME.github.io/gigl-website/",
+  "mapEmbed": "https://www.google.com/maps?q=Maharajganj%20Pokhar%2C%20Imambari%2C%20Laheriasarai%2C%20Darbhanga%2C%20Bihar%20846001&output=embed",
+  "leaders": [
+    {
+      "name": "Mohammad Afzal Sir",
+      "qualification": "B.Ed",
+      "title": "Principal & Director",
+      "focus": "Academic Vision & Pedagogy",
+      "phone": "+91 8434459262",
+      "photo": "assets/images/gigl/leaders/afzal.jpg",
+      "initials": "MA",
+      "quote": "Every child who walks through our gate deserves a teacher who believes in them before the world does."
+    },
+    {
+      "name": "Er. Hasan Sir",
+      "qualification": "",
+      "title": "Director",
+      "focus": "STEM Innovation, Digital Infrastructure & Coding",
+      "phone": "+91 6200877717",
+      "photo": "assets/images/gigl/leaders/hasan.jpg",
+      "initials": "EH",
+      "quote": "Technology in a classroom should be invisible — the learning should be the only thing a child notices."
+    },
+    {
+      "name": "Er. Iftekhar Sir",
+      "qualification": "",
+      "title": "Director",
+      "focus": "Student Welfare, Sports, Safety & Operations",
+      "phone": "+91 8210124130",
+      "photo": "assets/images/gigl/leaders/iftekhar.jpg",
+      "initials": "EI",
+      "quote": "A safe campus, a listening ear and a field to run on are not extras — they are part of the syllabus."
+    }
+  ]
+}

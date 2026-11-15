@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Photo Gallery — GIGL International School, Darbhanga</title>
+<meta name="description" content="83 photographs from GIGL International School, Darbhanga — classrooms, kindergarten, activities, sports and celebrations.">
+<meta name="theme-color" content="#0a192f">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="grain" aria-hidden="true"></div>
+
+<div class="ticker" aria-label="Latest announcements">
+  <span class="ticker__label"><i class="fa-solid fa-bullhorn"></i> Updates</span>
+  <div class="ticker__track" data-notice-ticker>
+    <span class="ticker__item"><b>Admissions Open 2026-27:</b> Nursery to Class 6th — Call +91 8434459262</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="topbar">
+    <div class="wrap">
+      <div class="topbar__phones">
+        <a href="tel:+918434459262"><i class="fa-solid fa-phone"></i>+91 84344 59262</a>
+        <a href="tel:+916200877717"><i class="fa-solid fa-phone"></i>+91 62008 77717</a>
+      </div>
+      <div class="topbar__right">
+        <a href="mailto:giglschool2026@gmail.com"><i class="fa-regular fa-envelope"></i> giglschool2026@gmail.com</a>
+        <div class="topbar__social">
+          <a href="https://instagram.com/gigl.school2026" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.youtube.com/@giglSchool" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navbar" id="navbar">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <img src="assets/images/gigl/logo.png" alt="GIGL International School crest" width="50" height="50">
+        <span class="brand__text">
+          <span class="brand__name">GIGL International School</span>
+          <span class="brand__sub">Shaping Minds · Building Futures</span>
+        </span>
+      </a>
+      <nav class="menu" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#academics">Academics</a>
+        <a href="index.html#admission">Admission</a>
+        <a href="index.html#facilities">Facilities</a>
+        <a href="gallery.html" aria-current="page">Gallery</a>
+        <a href="notices.html">Notices</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <div class="nav-cta">
+        <a class="btn btn-gold btn-sm" href="index.html#admission"><i class="fa-solid fa-pen-to-square"></i> Apply Online</a>
+      </div>
+      <button class="burger" id="openMenu" aria-label="Open menu" aria-controls="drawer"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer__top">
+    <a class="brand" href="index.html"><img src="assets/images/gigl/logo.png" alt="" width="42" height="42">
+      <span class="brand__text"><span class="brand__name">GIGL International</span></span></a>
+    <button class="drawer__close" id="closeMenu" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <a href="index.html">Home <i class="fa-solid fa-arrow-right"></i></a>
+  <a href="index.html#about">About <i class="fa-solid fa-arrow-right"></i></a>
+  <a href="index.html#academics">Academics <i class="fa-solid fa-arrow-right"></i></a>
+  <a href="index.html#admission">Admission <i class="fa-solid fa-arrow-right"></i></a>
+  <a href="index.html#facilities">Facilities <i class="fa-solid fa-arrow-right"></i></a>
+  <a href="gallery.html">Gallery <i class="fa-solid fa-arrow-right"></i></a>
+  <a href="notices.html">Notices <i class="fa-solid fa-arrow-right"></i></a>
+  <a href="index.html#contact">Contact <i class="fa-solid fa-arrow-right"></i></a>
+</div>
+
+<main id="main">
+  <section class="section" style="padding-top:56px">
+    <div class="wrap">
+      <p class="eyebrow" style="margin-bottom:0">Student life</p>
+      <h1 style="font-size:clamp(30px,5vw,52px);margin:10px 0 10px">Photo Gallery</h1>
+      <p class="sub">83 photographs from our campus. Tap any photo to view it full screen; use the arrow
+        keys to move between photos.</p>
+
+      <div class="filters" role="group" aria-label="Filter photos">
+        <button class="filter is-active" data-filter="all" aria-pressed="true">All photos</button>
+        <button class="filter" data-filter="classrooms" aria-pressed="false">Classrooms</button>
+        <button class="filter" data-filter="kindergarten" aria-pressed="false">Kindergarten</button>
+        <button class="filter" data-filter="activities" aria-pressed="false">Activities &amp; Sports</button>
+        <button class="filter" data-filter="celebrations" aria-pressed="false">Celebrations</button>
+      </div>
+
+      <div class="gallery-grid" id="galleryGrid" style="margin-top:26px"></div>
+
+      <p style="margin-top:34px;font-size:13px;color:#94a3b8">
+        <i class="fa-solid fa-circle-info"></i> Photos are from the school's own albums.
+        More photos: <a href="https://instagram.com/gigl.school2026" target="_blank" rel="noopener">@gigl.school2026</a>
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot__bottom" style="border:0">
+      <span>© <span data-year>2026</span> GIGL International School · Maharajganj Pokhar, Imambari, Laheriasarai, Darbhanga – 846001</span>
+      <span><a href="index.html">Home</a> · <a href="notices.html">Notices</a> · <a href="admin.html">Admin</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="floats">
+  <a class="fab fab--wa" href="https://wa.me/918434459262" target="_blank" rel="noopener" aria-label="WhatsApp" style="position:relative"><i class="fa-brands fa-whatsapp"></i></a>
+  <button class="fab fab--top" id="toTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+</div>
+
+<div class="mobile-bar">
+  <a href="tel:+918434459262"><i class="fa-solid fa-phone"></i> Call</a>
+  <a href="https://wa.me/918434459262" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+  <a class="primary" href="index.html#admission"><i class="fa-solid fa-pen-to-square"></i> Apply</a>
+</div>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lb-btn lb-close" id="lbClose" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+  <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+  <img id="lbImg" src="assets/images/gigl/logo.png" alt="">
+  <button class="lb-btn lb-next" id="lbNext" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+  <div class="lightbox__cap" id="lbCap"></div>
+</div>
+
+<script>
+/* Build the 81-photo grid from the files in assets/images/gigl/gallery/.
+   Categories are assigned by range — edit CATS below if you want different groups. */
+(function () {
+  var total = 83;
+  var cats = [
+    { key: "classrooms",   from: 1,  to: 20, label: "Classroom" },
+    { key: "kindergarten", from: 21, to: 40, label: "Kindergarten" },
+    { key: "activities",   from: 41, to: 60, label: "Activities & sports" },
+    { key: "celebrations", from: 61, to: 83, label: "Celebration" }
+  ];
+  var grid = document.getElementById("galleryGrid");
+  if (!grid) return;
+  var html = "";
+  for (var i = 1; i <= total; i++) {
+    var n = String(i).padStart(2, "0");
+    var cat = cats.find(function (c) { return i >= c.from && i <= c.to; }) || cats[0];
+    html += '<button class="g-item" data-cat="' + cat.key + '" data-caption="' + cat.label + " — photo " + i + '">' +
+      '<img src="assets/images/gigl/gallery/photo-' + n + '.jpeg" alt="' + cat.label + " at GIGL International School, photo " + i + '"' +
+      ' loading="lazy" decoding="async" width="800" height="600">' +
+      '<i class="fa-solid fa-expand"></i><span class="g-item__cap">' + cat.label + "</span></button>";
+  }
+  grid.innerHTML = html;
+})();
+</script>
+<script src="js/main.js" defer></script>
+<script src="js/notices.js" defer></script>
+</body>
+</html>
