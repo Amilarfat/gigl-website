@@ -112,6 +112,45 @@
   }));
   scene.add(dust);
 
+  /* ---------- colourful companion dust (cyan + violet) ---------- */
+  function dustCloud(count, color, size, opacity, spreadX, spreadY) {
+    var pos = new Float32Array(count * 3);
+    for (var j = 0; j < count; j++) {
+      pos[j * 3] = (Math.random() - 0.5) * spreadX;
+      pos[j * 3 + 1] = (Math.random() - 0.5) * spreadY;
+      pos[j * 3 + 2] = (Math.random() - 0.5) * 8;
+    }
+    var geo = new THREE.BufferGeometry();
+    geo.setAttribute("position", new THREE.BufferAttribute(pos, 3));
+    var pts = new THREE.Points(geo, new THREE.PointsMaterial({
+      color: color, size: size, transparent: true, opacity: opacity,
+      blending: THREE.AdditiveBlending, depthWrite: false
+    }));
+    scene.add(pts);
+    return pts;
+  }
+  var cloudCyan = dustCloud(small ? 70 : 200, 0x38bdf8, 0.035, 0.55, 20, 11);
+  var cloudViolet = dustCloud(small ? 50 : 150, 0xa78bfa, 0.03, 0.45, 22, 12);
+
+  /* ---------- gold halo ring ---------- */
+  var halo = new THREE.Mesh(
+    new THREE.TorusGeometry(2.9, 0.02, 8, 72),
+    new THREE.MeshBasicMaterial({ color: GOLD_L, transparent: true, opacity: 0.35, blending: THREE.AdditiveBlending })
+  );
+  halo.rotation.x = Math.PI / 2.4;
+  group.add(halo);
+
+  /* ---------- real school crest floating in the scene ---------- */
+  var crest = null;
+  var crestLoader = new THREE.TextureLoader();
+  crestLoader.load("assets/images/gigl/logo.png", function (tex) {
+    var mat = new THREE.MeshBasicMaterial({ map: tex, transparent: true, opacity: 0.92, depthWrite: false });
+    var plane = new THREE.Mesh(new THREE.PlaneGeometry(3.4, 3.4), mat);
+    plane.position.set(0, 0.4, -2.6);
+    scene.add(plane);
+    crest = plane;
+  }, undefined, function () { /* texture failed -> scene still works without it */ });
+
   /* ---------- sizing ---------- */
   function resize() {
     var host = canvas.parentElement || canvas;
@@ -164,6 +203,20 @@
 
     dust.rotation.y = t * 0.02;
     dust.position.y = Math.sin(t * 0.3) * 0.25;
+
+    cloudCyan.rotation.y = -t * 0.03;
+    cloudCyan.position.y = Math.sin(t * 0.24 + 1.5) * 0.3;
+    cloudViolet.rotation.y = t * 0.025;
+    cloudViolet.position.y = Math.cos(t * 0.27) * 0.3;
+
+    halo.rotation.z = t * 0.12;
+    halo.position.y = Math.sin(t * 0.5) * 0.12;
+
+    if (crest) {
+      crest.position.y = 0.4 + Math.sin(t * 0.55) * 0.16;
+      crest.rotation.z = Math.sin(t * 0.3) * 0.02;
+      crest.material.opacity = 0.75 + Math.sin(t * 0.8) * 0.15;
+    }
 
     renderer.render(scene, camera);
   }

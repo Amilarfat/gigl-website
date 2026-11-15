@@ -1,0 +1,177 @@
+/* ==========================================================================
+   GIGL International School — cinematic.css (upgrade layer)
+   Aurora, shimmer, colourful accents, micro-3D. Loads after style.css.
+   All animations honour prefers-reduced-motion.
+   ========================================================================== */
+
+/* ---------- animated aurora blobs behind the whole site ---------- */
+.aurora{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.aurora span{
+  position:absolute;border-radius:50%;filter:blur(90px);opacity:.16;
+  will-change:transform;
+}
+.aurora span:nth-child(1){
+  width:52vmax;height:52vmax;left:-14vmax;top:-18vmax;
+  background:radial-gradient(circle,#123f86 0%,transparent 65%);
+  animation:aurora-a 26s ease-in-out infinite alternate;
+}
+.aurora span:nth-child(2){
+  width:40vmax;height:40vmax;right:-12vmax;top:22vh;
+  background:radial-gradient(circle,rgba(245,179,1,.9) 0%,transparent 62%);
+  animation:aurora-b 31s ease-in-out infinite alternate;
+}
+.aurora span:nth-child(3){
+  width:44vmax;height:44vmax;left:18vw;bottom:-20vmax;
+  background:radial-gradient(circle,#5b3df5 0%,transparent 60%);
+  animation:aurora-c 37s ease-in-out infinite alternate;
+}
+.aurora span:nth-child(4){
+  width:30vmax;height:30vmax;right:6vw;bottom:-8vmax;
+  background:radial-gradient(circle,#0e9488 0%,transparent 60%);
+  animation:aurora-b 29s ease-in-out infinite alternate-reverse;
+}
+@keyframes aurora-a{
+  0%{transform:translate(0,0) scale(1)}
+  50%{transform:translate(6vw,5vh) scale(1.15)}
+  100%{transform:translate(-4vw,8vh) scale(.95)}
+}
+@keyframes aurora-b{
+  0%{transform:translate(0,0) scale(1)}
+  50%{transform:translate(-7vw,-6vh) scale(1.1)}
+  100%{transform:translate(4vw,5vh) scale(.9)}
+}
+@keyframes aurora-c{
+  0%{transform:translate(0,0) scale(1)}
+  100%{transform:translate(5vw,-7vh) scale(1.2)}
+}
+
+/* ---------- animated gradient headline + shimmer sweep ---------- */
+.hero h1{
+  background:linear-gradient(100deg,#ffffff 0%,#fed966 28%,#ffffff 52%,#f5b301 74%,#ffffff 100%);
+  background-size:220% 100%;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+  animation:title-sheen 7s var(--ease, ease) infinite;
+}
+@keyframes title-sheen{
+  0%,12%{background-position:0% 0}
+  45%,60%{background-position:100% 0}
+  100%{background-position:0% 0}
+}
+.title em{
+  background:linear-gradient(100deg,var(--gold,#f5b301),#fff3c4 45%,var(--gold,#f5b301));
+  background-size:200% 100%;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+  animation:title-sheen 8s var(--ease, ease) infinite;
+}
+
+/* ---------- gold shine sweep on every button ---------- */
+.btn{position:relative;overflow:hidden;isolation:isolate}
+.btn::after{
+  content:"";position:absolute;top:0;bottom:0;left:-80%;width:55%;
+  background:linear-gradient(105deg,transparent,rgba(255,255,255,.5),transparent);
+  transform:skewX(-18deg);transition:left .55s var(--ease, ease);
+  pointer-events:none;
+}
+.btn:hover::after,.btn:focus-visible::after{left:130%}
+
+/* ---------- micro-3D card lift with per-card colour hairlines ---------- */
+.card,.pillar,.leader{
+  transition:transform .45s var(--ease, ease),box-shadow .45s var(--ease, ease),border-color .45s var(--ease, ease);
+}
+.card:hover,.pillar:hover,.leader:hover{
+  transform:translateY(-8px) scale(1.015);
+  box-shadow:0 30px 60px rgba(0,0,0,.5),0 0 0 1px rgba(245,179,1,.28);
+}
+.pillar{position:relative}
+.pillar::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:3px;border-radius:16px 16px 0 0;
+  background:var(--acc,linear-gradient(90deg,#f5b301,#fed966));
+  opacity:.85;
+}
+.pillar:nth-child(1){--acc:linear-gradient(90deg,#38bdf8,#818cf8)}
+.pillar:nth-child(2){--acc:linear-gradient(90deg,#f5b301,#fb7185)}
+.pillar:nth-child(3){--acc:linear-gradient(90deg,#34d399,#38bdf8)}
+.pillar:nth-child(4){--acc:linear-gradient(90deg,#a78bfa,#f0abfc)}
+.pillar h3{
+  background:linear-gradient(180deg,#fff,#b8c6dc);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+}
+
+/* ---------- colourful value chips (each its own hue) ---------- */
+.value:nth-child(6n+1){--vc:#38bdf8}
+.value:nth-child(6n+2){--vc:#f5b301}
+.value:nth-child(6n+3){--vc:#34d399}
+.value:nth-child(6n+4){--vc:#a78bfa}
+.value:nth-child(6n+5){--vc:#fb7185}
+.value:nth-child(6n+6){--vc:#fbbf24}
+.value{transition:transform .3s var(--ease, ease),border-color .3s,background .3s,color .3s}
+.value:hover{
+  border-color:var(--vc,#f5b301);color:#fff;transform:translateY(-3px) scale(1.06);
+  box-shadow:0 10px 26px rgba(245,179,1,.22);
+}
+
+/* ---------- floating emblem card (gentle 3D bob + glow pulse) ---------- */
+.emblem{animation:emblem-float 6.5s ease-in-out infinite}
+.emblem::after{
+  content:"";position:absolute;inset:-2px;border-radius:inherit;z-index:-1;
+  background:conic-gradient(from 0deg,#f5b301,#38bdf8,#a78bfa,#fb7185,#f5b301);
+  filter:blur(18px);opacity:.35;animation:emblem-glow 9s linear infinite;
+}
+@keyframes emblem-float{
+  0%,100%{transform:translateY(0) rotateX(0deg)}
+  50%{transform:translateY(-10px) rotateX(1.2deg)}
+}
+@keyframes emblem-glow{
+  0%{filter:blur(18px) hue-rotate(0deg)}
+  100%{filter:blur(18px) hue-rotate(360deg)}
+}
+.emblem__crest{animation:crest-pop 7s var(--ease, ease) infinite}
+@keyframes crest-pop{
+  0%,100%{transform:scale(1);filter:drop-shadow(0 0 14px rgba(245,179,1,.45))}
+  50%{transform:scale(1.045);filter:drop-shadow(0 0 26px rgba(245,179,1,.75))}
+}
+
+/* ---------- eyebrow sparkle ---------- */
+.eyebrow i{animation:eyebrow-twinkle 2.6s ease-in-out infinite}
+@keyframes eyebrow-twinkle{
+  0%,100%{transform:scale(1);opacity:1}
+  50%{transform:scale(1.35) rotate(18deg);opacity:.75}
+}
+
+/* ---------- facility icon colours (nth-child rainbow) ---------- */
+.facility:nth-child(8n+1) .card__ic{--ic:#38bdf8}
+.facility:nth-child(8n+2) .card__ic{--ic:#f5b301}
+.facility:nth-child(8n+3) .card__ic{--ic:#34d399}
+.facility:nth-child(8n+4) .card__ic{--ic:#a78bfa}
+.facility:nth-child(8n+5) .card__ic{--ic:#fb7185}
+.facility:nth-child(8n+6) .card__ic{--ic:#fbbf24}
+.facility:nth-child(8n+7) .card__ic{--ic:#22d3ee}
+.facility:nth-child(8n+8) .card__ic{--ic:#f97316}
+.card__ic{
+  background:rgba(15,36,68,.7);
+  color:var(--ic,#f5b301);
+  box-shadow:0 8px 24px rgba(245,179,1,.18);
+  transition:transform .4s var(--ease, ease),box-shadow .4s;
+}
+.card:hover .card__ic{transform:scale(1.12) rotate(-6deg)}
+
+/* ---------- notice ticker: label must cover the scrolling text ---------- */
+.ticker__track{animation-timing-function:linear}
+.ticker__label{position:relative;z-index:2;box-shadow:8px 0 18px rgba(2,8,20,.95)}
+
+/* ---------- reveal motion: slightly deeper for cinema feel ---------- */
+.reveal{transition-duration:.85s}
+
+/* ---------- reduced motion: switch everything off ---------- */
+@media (prefers-reduced-motion:reduce){
+  .aurora span,.hero h1,.title em,.btn::after,.emblem,.emblem::after,
+  .emblem__crest,.eyebrow i,.value,.card__ic{
+    animation:none !important;
+  }
+  .hero h1,.title em{
+    background:none;-webkit-text-fill-color:currentColor;color:var(--gold-light,#fed966);
+  }
+}
