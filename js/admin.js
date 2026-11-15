@@ -19,6 +19,34 @@
   var editingId = null;
 
   var notices = [];
+  var pendingImage = null;
+
+  /* ---------- photo helper (downscale to keep notices.json small) ---------- */
+  function shrinkImage(file, cb) {
+    var reader = new FileReader();
+    reader.onload = function () {
+      var img = new Image();
+      img.onload = function () {
+        var maxW = 900;
+        var scale = Math.min(1, maxW / img.width);
+        var c = document.createElement("canvas");
+        c.width = Math.round(img.width * scale);
+        c.height = Math.round(img.height * scale);
+        c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+        cb(c.toDataURL("image/jpeg", 0.72));
+      };
+      img.src = reader.result;
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function showImagePreview(dataUrl) {
+    var prev = $("#nImagePrev"), pic = $("#nImagePrevImg");
+    if (!prev || !pic) return;
+    pendingImage = dataUrl;
+    if (dataUrl) { pic.src = dataUrl; prev.hidden = false; }
+    else { prev.hidden = true; pic.src = ""; }
+  }
 
   /* ---------- toast ---------- */
   window.GIGLToast = function (msg) {
@@ -85,8 +113,9 @@
       return;
     }
     table.innerHTML = notices.map(function (n, i) {
+      var thumb = n.image ? '<img src="' + esc(n.image) + '" alt="" style="width:44px;height:32px;object-fit:cover;border-radius:8px;margin-right:8px;vertical-align:middle">' : "";
       return "<tr>" +
-        "<td>" + (n.pinned ? '<i class="fa-solid fa-thumbtack" style="color:#f5b301"></i> ' : "") + esc(n.title) + "</td>" +
+        "<td>" + (n.pinned ? '<i class="fa-solid fa-thumbtack" style="color:#f5b301"></i> ' : "") + thumb + esc(n.title) + "</td>" +
         "<td>" + esc(n.category || "General") + "</td>" +
         "<td>" + esc(n.date) + "</td>" +
         '<td><span class="badge ' + (n.active !== false ? "on" : "off") + '">' + (n.active !== false ? "Visible" : "Hidden") + "</span></td>" +
@@ -120,6 +149,22 @@
   }
 
   /* ---------- form ---------- */
+  var imageFile = $("#nImageFile");
+  if (imageFile) {
+    imageFile.addEventListener("change", function () {
+      var f = imageFile.files && imageFile.files[0];
+      if (!f) { showImagePreview(null); return; }
+      if (!/^image\//.test(f.type)) { window.GIGLToast("Please choose an image file"); imageFile.value = ""; return; }
+      if (f.size > 8 * 1024 * 1024) { window.GIGLToast("Photo too large — pick one under 8 MB"); imageFile.value = ""; return; }
+      shrinkImage(f, function (dataUrl) { showImagePreview(dataUrl); window.GIGLToast("Photo ready"); });
+    });
+  }
+  var imageRemove = $("#nImageRemove");
+  if (imageRemove) imageRemove.addEventListener("click", function () {
+    showImagePreview(null);
+    if (imageFile) imageFile.value = "";
+  });
+
   function fillForm(i) {
     var n = notices[i];
     editingId = n.id;
@@ -130,6 +175,8 @@
     $("#nLink").value = n.link || "";
     $("#nPinned").checked = !!n.pinned;
     $("#nActive").checked = n.active !== false;
+    showImagePreview(n.image || null);
+    if (imageFile) imageFile.value = "";
     $("#formTitle").textContent = "Edit notice";
     $("#cancelEdit").hidden = false;
     $("#noticeForm").scrollIntoView({ behavior: "smooth", block: "start" });
@@ -138,6 +185,8 @@
   function resetForm() {
     editingId = null;
     if (form) form.reset();
+    showImagePreview(null);
+    if (imageFile) imageFile.value = "";
     $("#nDate").value = new Date().toISOString().slice(0, 10);
     $("#nActive").checked = true;
     $("#formTitle").textContent = "Add a notice";
@@ -155,7 +204,8 @@
         category: $("#nCategory").value,
         pinned: $("#nPinned").checked,
         active: $("#nActive").checked,
-        link: $("#nLink").value.trim()
+        link: $("#nLink").value.trim(),
+        image: pendingImage || undefined
       };
       if (!data.title) { window.GIGLToast("Title is required"); return; }
 

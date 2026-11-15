@@ -115,6 +115,7 @@
       feature.innerHTML =
         (top.pinned ? '<span class="pin"><i class="fa-solid fa-thumbtack"></i> Pinned notice</span>' : '<span class="pin"><i class="fa-regular fa-bell"></i> Latest</span>') +
         "<h3>" + esc(top.title) + "</h3>" +
+        (top.image ? '<img class="notice-img" src="' + esc(top.image) + '" alt="' + esc(top.title) + '" loading="lazy">' : "") +
         "<p>" + esc(top.body) + "</p>" +
         '<div class="meta"><span><i class="fa-regular fa-calendar"></i> ' + fmtDate(top.date) + "</span>" +
         '<span class="tag ' + tagClass(top.category) + '">' + esc(top.category || "Notice") + "</span>" +
@@ -154,6 +155,7 @@
         '<span class="top"><span class="tag ' + tagClass(n.category) + '">' + esc(n.category || "Notice") + "</span>" +
         newBadge(n) + '<span class="date">' + fmtDate(n.date) + "</span></span>" +
         "<b>" + esc(n.title) + "</b>" +
+        (n.image ? '<img class="notice-img notice-img--sm" src="' + esc(n.image) + '" alt="' + esc(n.title) + '" loading="lazy">' : "") +
         '<p style="font-size:13.5px;color:#94a3b8;margin:8px 0 0">' + esc(n.body) + "</p>" +
         (n.link ? '<p style="margin:12px 0 0"><a href="' + esc(n.link) + '">Read more →</a></p>' : "") +
         "</article>";

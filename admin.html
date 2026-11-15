@@ -77,6 +77,15 @@
             <option>Holiday</option><option>General</option>
           </select>
         </div>
+        <div class="field col-2">
+          <label for="nImageFile">Photo (optional — exam notice, event photo)</label>
+          <input id="nImageFile" type="file" accept="image/*">
+          <div id="nImagePrev" hidden style="display:flex;align-items:center;gap:10px;margin-top:10px">
+            <img id="nImagePrevImg" alt="Notice photo preview" style="width:92px;height:64px;object-fit:cover;border-radius:10px;border:1px solid var(--line-soft)">
+            <button class="btn btn-ghost btn-sm" type="button" id="nImageRemove"><i class="fa-solid fa-trash"></i> Remove photo</button>
+            <small style="color:#94a3b8">Photo is compressed automatically, so the file stays small.</small>
+          </div>
+        </div>
         <div class="field">
           <label for="nLink">Link (optional)</label>
           <input id="nLink" placeholder="#admission or a PDF path">
